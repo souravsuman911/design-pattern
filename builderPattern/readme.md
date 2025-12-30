@@ -128,60 +128,60 @@ Order enforced by return types**
 
 
 
-                            +---------------------------+
-                            |         Request           |   
-                            +---------------------------+
-                            | - url                     |
-                            | - method                  |
-                            | - headers                 |
-                            | - body                    |
-                            +---------------------------+
-                            | - Request(Builder)        |
-                            +-------------+-------------+
-                                          ▲
-                                          |
-                            +---------------------------------+
-                            |        StepBuilder              |
-                            +---------------------------------+
-                            | + header() : IOptionalStep      |
-                            | + queryParam() : IOptionalStep  |
-                            | + timeout() : IOptionalStep     |
-                            | + build() : Request             |
-                            +-------------+-------------------+
-                                          ▲
-                                          |
-                            +---------------------------------+
-                            |     IOptionalStep               |
-                            +---------------------------------+
-                            | + header() : IOptionalStep      |
-                            | + queryParam() : IOptionalStep  |
-                            | + timeout() : IOptionalStep     |
-                            | + build() : Request             |
-                            | + body() : IOptionalStep        |
-                            | + method() : IHeaderStep        |
-                            | + url() : IMethodStep           |
-                            +-------------+-------------------+
-                            ▲            ▲                   ▲
-                            |            |                   |          
-    +---------------------------+        |                   |
-    |      IBodyStep            |        |                   |
-    +---------------------------+        |                   |
-    | + body() : IOptionalStep  |        |                   |
-    +-------------+-------------+        |                   |
-                                         |                   |
-                                         |                   |
-                            +---------------------------+    |
-                            |     IMethodStep           |    |
-                            +---------------------------+    |
-                            | + method() : IHeaderStep  |    |
-                            +-------------+-------------+    |
-                                                             |
-                                                             |
-                                                +---------------------------+
-                                                |      IUrlStep             |
-                                                +---------------------------+
-                                                | + url() : IMethodStep     |
-                                                +---------------------------+
+                                +---------------------------+
+                                |         Request           |   
+                                +---------------------------+
+                                | - url                     |
+                                | - method                  |
+                                | - headers                 |
+                                | - body                    |
+                                +---------------------------+
+                                | - Request(Builder)        |
+                                +-------------+-------------+
+                                              ▲
+                                              |
+                                +---------------------------------+
+                                |        StepBuilder              |
+                                +---------------------------------+
+                                | + header() : IOptionalStep      |
+                                | + queryParam() : IOptionalStep  |
+                                | + timeout() : IOptionalStep     |
+                                | + build() : Request             |
+                                +-------------+-------------------+
+                                              ▲
+                                              |
+                                +---------------------------------+
+                                |     IOptionalStep               |
+                                +---------------------------------+
+                                | + header() : IOptionalStep      |
+                                | + queryParam() : IOptionalStep  |
+                                | + timeout() : IOptionalStep     |
+                                | + build() : Request             |
+                                | + body() : IOptionalStep        |
+                                | + method() : IHeaderStep        |
+                                | + url() : IMethodStep           |
+                                +-------------+-------------------+
+                                ▲            ▲                   ▲
+                                |            |                   |          
+        +---------------------------+        |                   |
+        |      IBodyStep            |        |                   |
+        +---------------------------+        |                   |
+        | + body() : IOptionalStep  |        |                   |
+        +-------------+-------------+        |                   |
+                                             |                   |
+                                             |                   |
+                                +---------------------------+    |
+                                |     IMethodStep           |    |
+                                +---------------------------+    |
+                                | + method() : IHeaderStep  |    |
+                                +-------------+-------------+    |
+                                                                 |
+                                                                 |
+                                                    +---------------------------+
+                                                    |      IUrlStep             |
+                                                    +---------------------------+
+                                                    | + url() : IMethodStep     |
+                                                    +---------------------------+
 
 Relations
 Request class - HttpRequest
