@@ -11,10 +11,10 @@ Adapter acts as a translator between two incompatible interfaces.
 
 **Structure:**
 
-    Client → uses a Target interface
-    Target → expected interface
-    Adaptee → existing class with incompatible interface
-    Adapter → implements Target and internally calls Adaptee
+*    Client → uses a Target interface
+*    Target → expected interface
+*    Adaptee → existing class with incompatible interface
+*    Adapter → implements Target and internally calls Adaptee
 
 
 
