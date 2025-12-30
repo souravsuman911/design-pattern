@@ -31,7 +31,7 @@ The **Builder Design Pattern** is about controlling object creation complexity w
 * Constructor complexity   _Eliminated_
 * Immutability	_Easy_
 * Readability	_High_
-* **Validation	 _Centralized_**
+* **Validation	 _Centralized_
 * Telescoping constructors	_Avoided_
 
 
@@ -183,7 +183,7 @@ Order enforced by return types**
                                                     | + url() : IMethodStep     |
                                                     +---------------------------+
 
-Relations
-Request class - HttpRequest
-HttpRequestStepBuilder has HttpRequest
-HttpRequestStepBuilder implements IUrlStep, IMethodStep, IBodyStep, IOptionalStep
+* Relations
+* Request class - HttpRequest
+* HttpRequestStepBuilder has HttpRequest
+* HttpRequestStepBuilder implements IUrlStep, IMethodStep, IBodyStep, IOptionalStep
