@@ -26,23 +26,23 @@ It follows the principle: “Open for extension, closed for modification.”
         │ + operation()       │
         └─────────▲───────────┘
                   │implements 
-      ┌───────────┴───────────┐
-      │                       │
-┌──────────────--─┐      ┌────────────────-─────┐
-│ConcreteComponent│      │     Decorator        │
-│-----------------│      │    <<abstract>>      │
-│ + operation()   │      │----------------------│
-└──────────────-──┘      │ - component:Component│
-                         │ + operation()        │
-                         └─────────▲──────────-─┘
-                                   │extends
-                        ┌──────────┴─────---------──────┐
-                        │                               │
-                        ┌──────────────--──┐    ┌────────────────--┐
-                        │ConcreteDecoratorA│    │ConcreteDecoratorB│
-                        │----------------  │    │------------------│
-                        │ + operation()    │    │ + operation()    │
-                        └────────────────--┘    └────────--────────┘
+         ┌────────┴─────────────────────┐
+         │                              │
+    ┌──────────────--─┐      ┌────────────────-─────┐
+    │ConcreteComponent│      │     Decorator        │
+    │-----------------│      │    <<abstract>>      │
+    │ + operation()   │      │----------------------│
+    └──────────────-──┘      │ - component:Component│
+                             │ + operation()        │
+                             └─────────▲──────────-─┘
+                                       │extends
+                            ┌──────────┴─────---------──────┐
+                            │                               │
+                            ┌──────────────--──┐    ┌────────────────--┐
+                            │ConcreteDecoratorA│    │ConcreteDecoratorB│
+                            │----------------  │    │------------------│
+                            │ + operation()    │    │ + operation()    │
+                            └────────────────--┘    └────────--────────┘
 
 
 
