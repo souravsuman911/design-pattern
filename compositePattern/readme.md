@@ -30,6 +30,21 @@ Then build tree structures using that abstraction.
 * Composite stores children of the same interface type
 * Operations are handled recursively
 
+                              <<interface>>
+                              Component
+                              ----------------
+                              + operation()
+                                    ▲
+                        ┌───────────┴───────────┐
+                        │                       │
+                  Leaf                  Composite
+                     -----                 ----------
+                  operation()            children : List<Component>
+                  add(Component)
+                  remove(Component)
+                  operation()
+
+
 
     Key Principle Behind Composite
     “Treat part and whole uniformly.”
