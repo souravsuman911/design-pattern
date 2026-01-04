@@ -1,9 +1,9 @@
-package internal.designPattern.observerPattern;
+package internal.designPattern.observerPattern.parking;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainClient2 {
+public class MainClient {
 
     //observer
     public static interface Observer{

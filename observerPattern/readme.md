@@ -30,8 +30,8 @@ all its dependents are notified/updated automatically.
                               ├────────────────────┤          
                               │ + update(state)    │          
                               └─────────▲──────────┘          
-                          ┌───--------────┴──-----──────┐
-                          │ implements                  │ implements
+                        ┌───--------────┴──-----──────┐
+                        │ implements                  │ implements
                 ┌────────────────────┐          ┌────────────────────┐
                 │  ConcreteObserver  │          │  ConcreteObserver  │
                 ├────────────────────┤          ├────────────────────┤
