@@ -50,30 +50,26 @@ In pattern terms:
 * Subject
     Maintains a list of observers
         Provides methods to:
-        add
-        remove
-        notify observers
-        "The Publisher"
+        add, remove, notify observers "The Publisher"
 
 * ConcreteSubject
-    Actual object whose state changes
-    Calls notify() when state changes
-    “The YouTube channel”
+    Actual object whose state changes, 
+    Calls notify() when state changes i.e the “The YouTube channel”
 
 * Observer
-    Interface with update() method
+    Interface with update() method, 
     Subject depends only on this interface
     “Anyone who wants updates”
 
 * ConcreteObserver
-    Implements Observer
+    Implements Observer, 
     Reacts when update() is called
     “A specific subscriber”
 
 🔹 Execution Flow
-    Subscriber attaches to Channel
-    Channel state changes
-    Channel calls notify()
+    Subscriber attaches to Channel, 
+    Channel state changes, 
+    Channel calls notify(), 
     notify() calls update() on all observers
     Subscribers react
 
