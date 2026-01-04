@@ -48,7 +48,6 @@ In pattern terms:
 
 🔹 What each part means
 * Subject
-
     Maintains a list of observers
         Provides methods to:
         add
@@ -57,19 +56,16 @@ In pattern terms:
         "The Publisher"
 
 * ConcreteSubject
-
     Actual object whose state changes
     Calls notify() when state changes
     “The YouTube channel”
 
 * Observer
-
     Interface with update() method
     Subject depends only on this interface
     “Anyone who wants updates”
 
 * ConcreteObserver
-
     Implements Observer
     Reacts when update() is called
     “A specific subscriber”
