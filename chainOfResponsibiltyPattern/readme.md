@@ -9,9 +9,9 @@ The sender does not know which handler will handle the request.
 
         Key                   Participants
         Participant	        Role
-        Client	        Initiates the request
+        Client	            Initiates the request
         Handler               (Interface/Abstract class) Declares request handling method
-        Concrete Handler	Handles request or forwards to next
+        Concrete Handler	    Handles request or forwards to next
         Chain	                Sequence of handlers
 
 **Structure**
