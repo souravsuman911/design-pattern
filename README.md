@@ -5,6 +5,8 @@ This README provides **easy-to-understand, concise explanations** of common desi
 
 ---
 
+
+
 ## 🏗️ Creational Patterns
 
 ### Singleton
@@ -15,6 +17,7 @@ Ensures a class has **only one instance** and provides a global access point to 
 
 **Key idea:** One class → One object
 
+
 ### Factory Pattern
 
 Creates objects without exposing the creation logic to the client. Solves tight coupling caused by directly using `new`. Use when the exact object type is decided at runtime.
@@ -23,6 +26,7 @@ Creates objects without exposing the creation logic to the client. Solves tight 
 
 **Key idea:** Let a factory decide which object to create
 
+
 ### Abstract Factory Pattern
 
 Creates **families of related objects** without specifying concrete classes. Solves issues where multiple related objects must be used together. Use when your system needs to support multiple product families.
@@ -30,6 +34,7 @@ Creates **families of related objects** without specifying concrete classes. Sol
 **When to use:** Cross-platform UI (Windows/Mac), themed components, database drivers
 
 **Key idea:** Factory of factories
+
 
 ### Builder Pattern
 
@@ -41,7 +46,10 @@ Constructs complex objects step by step. Solves constructor overload and readabi
 
 ---
 
+
+
 ## 🧱 Structural Patterns
+
 
 ### Adapter Pattern
 
@@ -51,6 +59,7 @@ Allows incompatible interfaces to work together. Solves integration problems wit
 
 **Key idea:** Convert one interface into another
 
+
 ### Decorator Pattern
 
 Adds new behavior to an object dynamically without changing its class. Solves subclass explosion problem. Use when you want flexible and reusable behavior extensions.
@@ -58,6 +67,7 @@ Adds new behavior to an object dynamically without changing its class. Solves su
 **When to use:** Adding features like logging, encryption, compression, UI styling
 
 **Key idea:** Wrap object to add features
+
 
 ### Composite Pattern
 
@@ -69,6 +79,8 @@ Treats single objects and groups of objects uniformly. Solves problems with tree
 
 ---
 
+
+
 ## 🔄 Behavioral Patterns
 
 ### Observer Pattern
@@ -79,6 +91,7 @@ Defines a one-to-many relationship where observers are notified of changes autom
 
 **Key idea:** Notify all listeners on change
 
+
 ### Strategy Pattern
 
 Defines a family of algorithms and allows switching between them at runtime. Solves large conditional (`if-else`) logic. Use when behavior changes based on context.
@@ -87,6 +100,7 @@ Defines a family of algorithms and allows switching between them at runtime. Sol
 
 **Key idea:** Replace conditional logic with polymorphism
 
+
 ### State Pattern
 
 Allows an object to change its behavior when its internal state changes. Solves complex state-based condition handling. Use when object behavior depends heavily on its current state.
@@ -94,6 +108,7 @@ Allows an object to change its behavior when its internal state changes. Solves 
 **When to use:** Vending machine, order lifecycle, ATM machine states
 
 **Key idea:** Behavior changes with state
+
 
 ### Chain of Responsibility Pattern
 
