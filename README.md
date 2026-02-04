@@ -71,7 +71,9 @@ Adds new behavior to an object dynamically without changing its class. Solves su
 
 ### Composite Pattern
 
-Treats single objects and groups of objects uniformly. Solves problems with tree-like structures such as file systems. Use when you need to work with part–whole hierarchies.
+Treats single objects and groups of objects uniformly. 
+Solves problems with tree-like structures such as file systems. 
+Use when you need to work with part–whole hierarchies.
 
 **When to use:** File systems, menu structures, organization hierarchies
 

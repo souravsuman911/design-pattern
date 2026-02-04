@@ -1,4 +1,4 @@
-package internal.designPattern.singletonPattern.multithreading;
+package internal.designPattern.singletonPattern.doubleCheckLock;
 
 public class Employee {
 
