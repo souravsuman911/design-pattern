@@ -1,24 +1,72 @@
 package internal.designPattern.abstractFactoryPattern;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+interface Button {
+    void paint();
+}
 
-public class MainClient {
+interface Checkbox {
+    void check();
+}
 
-//    GuiFactory guiFactory =
+class MacButton implements Button{
+    @Override
+    public void paint() {
+        System.out.println("Mac button paints");
+    }
+}
 
-    public static void main(String[] args) {
-        int[] a = {1, 2, 3};
-        Arrays.sort(a);
-        int idx = Arrays.binarySearch(a, 2);
+class MacCheckbox implements Checkbox{
+    @Override
+    public void check() {
+        System.out.println("Mac checkbox checks");
+    }
+}
 
-        List<Integer> b = new ArrayList<>();
-        int idx2 = Collections.binarySearch(b, 10);
+class WindowsButton implements Button{
+    @Override
+    public void paint() {
+        System.out.println("Windows button paints");
+    }
+}
 
+class WindowsCheckbox implements Checkbox{
+    @Override
+    public void check() {
+        System.out.println("Windows checkbox checks");
+    }
+}
 
+interface GuiFactory {
+    Button createButton();
+    Checkbox createCheckbox();
+}
+
+class MacFactory implements GuiFactory{
+    @Override
+    public Button createButton() {
+        return new MacButton();
     }
 
+    @Override
+    public Checkbox createCheckbox() {
+        return new MacCheckbox();
+    }
+}
 
+class WindowsFactory implements GuiFactory{
+    @Override
+    public Button createButton() {
+        return new WindowsButton();
+    }
+
+    @Override
+    public Checkbox createCheckbox() {
+        return new WindowsCheckbox();
+    }
+}
+
+public class MainClient {
+    public static void main(String[] args) {
+        
+    }
 }

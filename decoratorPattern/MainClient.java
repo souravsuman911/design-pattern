@@ -1,5 +1,61 @@
 package internal.designPattern.decoratorPattern;
 
+interface Coffee {
+    Double price();
+    String description();
+}
+
+class SimpleCoffee implements Coffee{
+    @Override
+    public Double price() {
+        return 50.0;
+    }
+
+    @Override
+    public String description() {
+        return "Simple Coffee";
+    }
+}
+
+abstract class CoffeeDecorator implements Coffee{
+    protected Coffee coffee;
+    public CoffeeDecorator(Coffee coffee){
+        this.coffee = coffee;
+    }
+}
+
+class MilkDecorator extends CoffeeDecorator{
+    public MilkDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    @Override
+    public Double price() {
+        return coffee.price() + 30;
+    }
+
+    @Override
+    public String description() {
+        return coffee.description() + ", with added Milk";
+    }
+}
+
+class SugarDecorator extends CoffeeDecorator{
+    public SugarDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    @Override
+    public Double price() {
+        return coffee.price() + 10;
+    }
+
+    @Override
+    public String description() {
+        return coffee.description() + ", with added Sugar";
+    }
+}
+
 public class MainClient {
 
     public static void main(String[] args) {

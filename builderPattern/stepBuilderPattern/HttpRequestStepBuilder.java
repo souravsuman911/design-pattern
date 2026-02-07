@@ -1,7 +1,5 @@
 package internal.designPattern.builderPattern.stepBuilderPattern;
 
-import internal.designPattern.builderPattern.builderWithDirector.HttpRequestBuilder;
-
 public class HttpRequestStepBuilder implements IUrlStep, IMethodStep, IBodyStep, IOptionalStep{
     private HttpRequest httpRequest;
     HttpRequestStepBuilder(){
