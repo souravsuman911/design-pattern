@@ -7,7 +7,7 @@ public class MainClient {
 
     //observer
     public static interface Observer{
-        public void update(String message);
+        void update(String message);
     }
 
     // Concrete observer

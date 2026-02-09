@@ -67,6 +67,20 @@ class WindowsFactory implements GuiFactory{
 
 public class MainClient {
     public static void main(String[] args) {
-        
+        GuiFactory guiFactory;
+        String os = "mac";
+
+        if(os.equals("mac")){
+            guiFactory = new MacFactory();
+        }
+        else {
+            guiFactory = new WindowsFactory();
+        }
+
+        Button button = guiFactory.createButton();
+        Checkbox checkbox = guiFactory.createCheckbox();
+
+        button.paint();
+        checkbox.check();
     }
 }

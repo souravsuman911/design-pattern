@@ -1,0 +1,65 @@
+BASIC LEVEL (1–10)
+
+1) Convert a List<Integer> into a List<Integer> containing only even numbers using Stream API.
+
+Given a List<String>, convert all strings to uppercase.
+
+Count how many numbers in a list are greater than 50.
+
+Remove duplicate elements from a list using streams.
+
+Sort a list of integers in ascending order using streams.
+
+Sort a list of strings in descending order.
+
+Find the first element in a list that is divisible by 5.
+
+Check if any number in a list is negative.
+
+Convert a List<String> into a List<Integer> (strings contain numeric values).
+
+Print all elements of a list using Stream API.
+
+🔹 MEDIUM LEVEL (11–20)
+
+1) From a list of employees, filter employees whose salary is greater than 60,000.
+
+2) Find the employee with the highest salary using streams.
+
+3) Calculate the sum of all employee salaries.
+
+4) Group employees by department.
+
+Count number of employees in each department.
+
+Convert a List<Employee> into a Map<id, name>.
+
+From a list of integers, find the second highest number.
+
+Given List<List<String>>, flatten it into a single List<String>.
+
+Partition a list of integers into even and odd numbers.
+
+Find all employees whose name starts with "A" and collect them into a list.
+
+🔹 ADVANCED LEVEL (21–30) – 3+ YRS EXPECTATION
+
+Find the average salary of employees department-wise.
+
+From a list of transactions, find the top 3 highest values.
+
+Find the first non-repeated character in a string using streams.
+
+Convert a list into a map while handling duplicate keys.
+
+Explain and demonstrate lazy evaluation with an example.
+
+Use reduce() to find the maximum element in a list.
+
+Compare stream() vs parallelStream() with a real example.
+
+Why should we avoid side effects in streams? Show a bad and good example.
+
+Can a stream be reused? Write code to prove your answer.
+
+Given a list of employees, group them by department and find the highest-paid employee in each department.
