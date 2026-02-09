@@ -1,4 +1,4 @@
-package internal.designPattern.external.practice.lld.notificationSystem;
+package internal.designPattern.external.lld.notificationSystem;
 
 import java.util.ArrayList;
 import java.util.Date;

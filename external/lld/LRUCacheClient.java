@@ -1,4 +1,4 @@
-package internal.designPattern.external.practice.lld;
+package internal.designPattern.external.lld;
 
 import java.util.HashMap;
 import java.util.Map;
