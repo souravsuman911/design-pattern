@@ -19,12 +19,12 @@ Daily Transactions - Hundreds of millions per day
 3. Core Entity
 
 Entity 1: Merchant/Clients - Business accounts initiating payments with API keys
-Entity 2: Transaction - Core payment record with amount, status, timestamps
-Entity 3: PaymentMethod - Card details, tokenized references, billing info
-Entity 4: Customer/Users - End users making payments
-Entity 5: WebhookEvent - Async notifications for status changes
-Entity 6: PaymentSession - Temporary checkout context with expiry
-Entity 7: PaymentIntent - User's intention to pay with status tracking
+Entity 2: Customer/Users - End users making payments
+Entity 3: PaymentIntent - User's intention to pay with status tracking
+Entity 4: PaymentSession - Temporary checkout context with expiry
+Entity 5: Transaction - Core payment record with amount, status, timestamps
+Entity 6: PaymentMethod - Card details, tokenized references, billing info
+Entity 7: WebhookEvent - Async notifications for status changes
 
 
 4. API Designing
@@ -34,11 +34,11 @@ POST /v1/payment-intents - Create payment intent with amount, currency, merchant
 POST /v1/payment-sessions - Create checkout session with cart details and return URLs
 POST /v1/checkout/{pay} - Process checkout with payment method and session ID
 GET /v1/payments/{payment_id} - Retrieve payment status and details
+
 Management Operations
 POST /v1/refunds - Initiate refund for completed payment
 POST /v1/webhooks - Register webhook endpoint for notifications
 GET /v1/reconciliation/report - Retrieve settlement and reconciliation reports
-
 
  */
 enum PaymentStatus {
@@ -51,12 +51,21 @@ class Merchant {
     String name;
 }
 
+class User {
+    String id;
+    String name;
+    String email;
+    int phNo;
+}
+
 class PaymentIntent {
     String id;
     String merchantId;
+    String userId;
     double amount;
     String currency;
     PaymentStatus status;
+    Date creationTime;
 }
 
 class PaymentSession {
@@ -69,7 +78,9 @@ class Transaction {
     String id;
     String paymentIntentId;
     double amount;
+    String currency;
     PaymentStatus status;
+    Date creationTime;
 }
 
 class PaymentMethod {
@@ -99,7 +110,8 @@ class PaymentController {
         return service.createIntent(
                 (double) req.get("amount"),
                 (String) req.get("currency"),
-                (String) req.get("merchantId")
+                (String) req.get("merchantId"),
+                (String) req.get("userId")
         );
     }
 

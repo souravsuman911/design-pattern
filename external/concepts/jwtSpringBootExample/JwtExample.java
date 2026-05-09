@@ -1,4 +1,4 @@
-package internal.designPattern.external.concepts.jwt;
+package internal.designPattern.external.concepts.jwtSpringBootExample;
 
 public class User {
     private String username;
