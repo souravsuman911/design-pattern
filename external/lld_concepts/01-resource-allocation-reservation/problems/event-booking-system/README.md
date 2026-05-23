@@ -1,4 +1,4 @@
-# Event Booking System LLD
+﻿# Event Booking System LLD
 
 This document explains the low-level design for an event booking system similar to BookMyShow, Ticketmaster, or movie ticket booking platforms. The implementation is available in `EventBookingSystemClient.java`.
 
@@ -9,79 +9,79 @@ The system allows users to search events, view showtimes, check seat availabilit
 ## Functional Requirements Handled
 
 1. **Search Events**
-   - Search events by query, location, and date.
-   - Fetch event details.
-   - Fetch showtimes for an event.
+    - Search events by query, location, and date.
+    - Fetch event details.
+    - Fetch showtimes for an event.
 
 2. **View Seats**
-   - View all seats for a specific show.
-   - Seat availability is maintained per showtime.
-   - Same physical seat can have different status for different shows.
+    - View all seats for a specific show.
+    - Seat availability is maintained per showtime.
+    - Same physical seat can have different status for different shows.
 
 3. **Reserve / Hold Seats**
-   - User can temporarily hold one or more seats.
-   - Duplicate seat IDs in the same request are rejected.
-   - Seat hold has an expiry time, currently 10 minutes.
-   - Held seats cannot be reserved by another user.
+    - User can temporarily hold one or more seats.
+    - Duplicate seat IDs in the same request are rejected.
+    - Seat hold has an expiry time, currently 10 minutes.
+    - Held seats cannot be reserved by another user.
 
 4. **Confirm Booking**
-   - User confirms booking using a valid hold ID and payment ID.
-   - Payment is verified before seats are marked as booked.
-   - Successful payment changes seats from `HELD` to `BOOKED`.
+    - User confirms booking using a valid hold ID and payment ID.
+    - Payment is verified before seats are marked as booked.
+    - Successful payment changes seats from `HELD` to `BOOKED`.
 
 5. **Payment Failure Handling**
-   - If payment fails, held seats are released.
-   - Failed booking record is created for audit/debugging.
+    - If payment fails, held seats are released.
+    - Failed booking record is created for audit/debugging.
 
 6. **Idempotent Confirmation**
-   - Confirmation API accepts an idempotency key.
-   - Repeated confirm requests with the same key return the same booking.
-   - Prevents duplicate bookings during client/network retries.
+    - Confirmation API accepts an idempotency key.
+    - Repeated confirm requests with the same key return the same booking.
+    - Prevents duplicate bookings during client/network retries.
 
 7. **Cancel Booking**
-   - Confirmed bookings can be cancelled.
-   - Cancelled booking releases seats back to available state.
+    - Confirmed bookings can be cancelled.
+    - Cancelled booking releases seats back to available state.
 
 8. **Query Bookings**
-   - Fetch booking by booking ID.
-   - Fetch all bookings for a user.
+    - Fetch booking by booking ID.
+    - Fetch all bookings for a user.
 
 9. **Expired Hold Handling**
-   - Expired holds are lazily released during reserve/confirm calls.
-   - A background expiry job can also be added in production.
+    - Expired holds are lazily released during reserve/confirm calls.
+    - A background expiry job can also be added in production.
 
 ## Non-Functional Requirements Handled
 
 1. **Concurrency Safety**
-   - Uses per-show locking with `ReentrantLock`.
-   - Multiple users can book different shows concurrently.
-   - Same show seat updates are protected from race conditions.
+    - Uses per-show locking with `ReentrantLock`.
+    - Multiple users can book different shows concurrently.
+    - Same show seat updates are protected from race conditions.
 
 2. **Data Consistency**
-   - Seat status transition is controlled: `AVAILABLE -> HELD -> BOOKED`.
-   - Duplicate seat IDs are rejected before seat status updates.
-   - Failed payment releases held seats.
-   - Expired holds release seats.
-   - Cancelled bookings release booked seats.
+    - Seat status transition is controlled: `AVAILABLE -> HELD -> BOOKED`.
+    - Duplicate seat IDs are rejected before seat status updates.
+    - Failed payment releases held seats.
+    - Expired holds release seats.
+    - Cancelled bookings release booked seats.
 
 3. **Scalability-Oriented Design**
-   - Locking is scoped per show, not global.
-   - Read-heavy operations like search and seat view can be cached.
-   - In production, repositories can be backed by DB, Redis, or distributed locks.
+    - Locking is scoped per show, not global.
+    - Read-heavy operations like search and seat view can be cached.
+    - In production, repositories can be backed by DB, Redis, or distributed locks.
 
 4. **Fault Tolerance**
-   - Idempotency protects against duplicate confirm calls.
-   - Booking status tracks successful, failed, and cancelled states.
-   - Payment failure path is explicitly handled.
+    - Idempotency protects against duplicate confirm calls.
+    - Booking status tracks successful, failed, and cancelled states.
+    - Payment failure path is explicitly handled.
 
 5. **Extensibility**
-   - Separate services for seat hold, booking, payment, and repositories.
-   - Can easily add pricing, refunds, notifications, coupons, waitlist, and audit logs.
+    - Separate services for seat hold, booking, payment, and repositories.
+    - Can easily add pricing, refunds, notifications, coupons, waitlist, and audit logs.
 
 6. **Performance**
-   - Uses `ConcurrentHashMap` for thread-safe in-memory storage.
-   - Per-show lock reduces contention compared to one global lock.
-   - Seat search is show-scoped.
+    - Uses `ConcurrentHashMap` for thread-safe in-memory storage.
+    - Per-show lock reduces contention compared to one global lock.
+    - Seat search is show-scoped.
 
 ## APIs
 
@@ -428,21 +428,21 @@ Users booking the same show must be synchronized to avoid double booking.
 ### Production Alternatives
 
 1. **Database Row Lock**
-   - Use `SELECT ... FOR UPDATE` on `show_seats` rows.
-   - Best when DB is the source of truth.
+    - Use `SELECT ... FOR UPDATE` on `show_seats` rows.
+    - Best when DB is the source of truth.
 
 2. **Optimistic Locking**
-   - Add `version` column to `show_seats`.
-   - Update only if version matches.
-   - Good for high read, moderate write systems.
+    - Add `version` column to `show_seats`.
+    - Update only if version matches.
+    - Good for high read, moderate write systems.
 
 3. **Redis Distributed Lock**
-   - Lock on `showId` or `showId:seatId`.
-   - Useful in distributed application deployments.
+    - Lock on `showId` or `showId:seatId`.
+    - Useful in distributed application deployments.
 
 4. **Unique Constraints**
-   - Add DB constraints to prevent duplicate confirmed seat bookings.
-   - Example: unique confirmed booking per `(show_id, seat_id)`.
+    - Add DB constraints to prevent duplicate confirmed seat bookings.
+    - Example: unique confirmed booking per `(show_id, seat_id)`.
 
 ## HLD Detailed Design
 
@@ -510,20 +510,20 @@ Database + Cache + Message Queue
 ### Storage
 
 1. **Relational DB**
-   - Stores users, venues, events, shows, seats, holds, bookings, payments.
-   - Strong consistency is needed for bookings and seat inventory.
+    - Stores users, venues, events, shows, seats, holds, bookings, payments.
+    - Strong consistency is needed for bookings and seat inventory.
 
 2. **Cache**
-   - Stores event listings, seat maps, and popular show details.
-   - Seat status cache must be invalidated carefully.
+    - Stores event listings, seat maps, and popular show details.
+    - Seat status cache must be invalidated carefully.
 
 3. **Search Index**
-   - Stores searchable event metadata.
-   - Supports filtering by city, date, category, venue, and keyword.
+    - Stores searchable event metadata.
+    - Supports filtering by city, date, category, venue, and keyword.
 
 4. **Message Queue**
-   - Publishes booking confirmed/cancelled/payment events.
-   - Used for notifications, analytics, and async refunds.
+    - Publishes booking confirmed/cancelled/payment events.
+    - Used for notifications, analytics, and async refunds.
 
 ### HLD Data Flow: Reserve Seats
 
@@ -775,22 +775,22 @@ CREATE TABLE payments (
 ## Design Patterns / Principles Used
 
 1. **Service Layer Pattern**
-   - `SeatHoldService`, `BookingService`, and `PaymentService` separate business logic.
+    - `SeatHoldService`, `BookingService`, and `PaymentService` separate business logic.
 
 2. **Repository Pattern**
-   - `SeatRepository` abstracts seat storage.
+    - `SeatRepository` abstracts seat storage.
 
 3. **DTO Pattern**
-   - `ReserveSeatsRequest` and `ConfirmBookingRequest` separate API input from domain objects.
+    - `ReserveSeatsRequest` and `ConfirmBookingRequest` separate API input from domain objects.
 
 4. **State Machine**
-   - Seat, hold, and booking statuses are modeled as enums.
+    - Seat, hold, and booking statuses are modeled as enums.
 
 5. **Idempotency Pattern**
-   - Confirmation retry returns the same booking for the same idempotency key.
+    - Confirmation retry returns the same booking for the same idempotency key.
 
 6. **Lock Striping by Show**
-   - Per-show lock reduces contention and prevents double booking.
+    - Per-show lock reduces contention and prevents double booking.
 
 ## Common Interview Questions and Short Answers
 

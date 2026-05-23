@@ -1,4 +1,4 @@
-package internal.designPattern.external.lld;
+package internal.designPattern.external.lld.lrucache;
 
 import java.util.HashMap;
 import java.util.Map;
