@@ -76,3 +76,40 @@ Service layer, repository, state machine, strategy, DTO/request object, observer
 - Identify the critical section.
 - Explain the chosen data structures.
 - Discuss DB schema and production constraints verbally.
+
++----------------+
+| TicTacToeGame  |
++----------------+
+| Board board    |
+| Player current |
+| Player p1      |
+| Player p2      |
++----------------+
+| start()        |
+| makeMove()     |
+| switchTurn()   |
++----------------+
+
++----------------+
+| Board          |
++----------------+
+| char[][] grid  |
++----------------+
+| placeMove()    |
+| isValidMove()  |
+| printBoard()   |
++----------------+
+
++----------------+
+| Player         |
++----------------+
+| String name    |
+| char symbol    |
++----------------+
+
++----------------+
+| Rule           |
++----------------+
+| checkWinner()  |
+| isDraw()       |
++----------------+

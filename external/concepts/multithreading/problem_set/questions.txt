@@ -1,0 +1,583 @@
+Java Multithreading Mastery Problem Set
+
+This roadmap is structured progressively:
+
+Level 1 → Thread Basics
+Level 2 → Thread Coordination
+Level 3 → Synchronization & Locks
+Level 4 → Advanced Locking
+Level 5 → Thread Pools & Executors
+Level 6 → Concurrent Collections
+Level 7 → CompletableFuture & Async
+Level 8 → Real-World System Design Problems
+
+Each problem contains:
+
+Problem Statement
+Concepts Used
+Expected Learning
+Hint / Approach
+Important APIs
+LEVEL 1 — Thread Basics
+
+1. Print Hello World Using Thread
+Problem
+
+Create a thread that prints:
+
+Hello from Thread
+Concepts
+Thread creation
+start()
+run()
+Use
+Thread class
+Learning
+
+Difference between:
+
+start()
+run()
+
+APIs
+Thread
+start()
+run()
+
+
+2. Create Thread Using Runnable
+Problem
+
+Create 2 threads using Runnable.
+
+One prints:
+
+Task A
+
+Another prints:
+
+Task B
+Concepts
+Runnable interface
+Thread delegation
+Learning
+
+Why Runnable is preferred over extending Thread.
+
+3. Difference Between start() and run()
+Problem
+
+Call:
+
+thread.run();
+
+instead of:
+
+thread.start();
+
+Observe behavior.
+
+Concepts
+Main thread vs child thread
+JVM thread scheduling
+Learning
+
+run() is normal method call.
+start() creates new thread.
+
+4. Sleep Example
+Problem
+
+Print numbers 1–5 with 1 second delay.
+
+Concepts
+Thread.sleep()
+Learning
+
+Thread pausing.
+
+APIs
+Thread.sleep()
+5. Join Example
+Problem
+
+Main thread should wait until child thread completes.
+
+Concepts
+join()
+Learning
+
+Thread coordination.
+
+LEVEL 2 — Thread Coordination
+6. Print Odd-Even Using 2 Threads
+Problem
+
+Two threads:
+
+Thread A prints odd numbers
+Thread B prints even numbers
+
+Output:
+
+1 2 3 4 5 6 ...
+Concepts
+wait()
+notify()
+monitor lock
+Learning
+
+Inter-thread communication.
+
+APIs
+wait()
+notify()
+synchronized
+7. Producer Consumer Problem (Basic)
+Problem
+
+Producer adds items.
+Consumer removes items.
+
+Buffer size = 1.
+
+Concepts
+wait/notify
+synchronization
+Learning
+
+Classic coordination problem.
+
+8. Producer Consumer Using BlockingQueue
+Problem
+
+Rebuild previous problem using:
+
+BlockingQueue
+Concepts
+concurrent utilities
+Learning
+
+Why modern concurrent APIs are better.
+
+APIs
+ArrayBlockingQueue
+put()
+take()
+9. Multiple Threads Printing in Sequence
+Problem
+
+3 threads print:
+
+A B C A B C ...
+Concepts
+synchronization
+condition signaling
+Learning
+
+Ordered execution.
+
+LEVEL 3 — Synchronization & Locks
+10. Race Condition Example
+Problem
+
+100 threads increment shared counter.
+
+Expected:
+
+100
+
+But actual output differs.
+
+Concepts
+race condition
+Learning
+
+Why synchronization needed.
+
+11. Fix Race Condition Using synchronized
+Problem
+
+Fix previous counter problem.
+
+Concepts
+intrinsic lock
+synchronized method/block
+Learning
+
+Mutual exclusion.
+
+12. Bank Account Withdrawal Problem
+Problem
+
+Two users withdraw simultaneously from same account.
+
+Prevent negative balance.
+
+Concepts
+synchronized critical section
+Learning
+
+Thread safety in business logic.
+
+13. Synchronized Block vs Method
+Problem
+
+Compare:
+
+synchronized void increment()
+
+vs
+
+synchronized(lock) {}
+Concepts
+object monitor
+lock granularity
+Learning
+
+Performance optimization.
+
+14. Deadlock Example
+Problem
+
+Create deadlock using:
+
+Thread A locks resource1 then resource2
+Thread B locks resource2 then resource1
+Concepts
+deadlock
+Learning
+
+Circular wait condition.
+
+15. Deadlock Prevention
+Problem
+
+Fix previous problem.
+
+Concepts
+lock ordering
+Learning
+
+Deadlock avoidance strategies.
+
+LEVEL 4 — Advanced Locks
+16. ReentrantLock Example
+Problem
+
+Replace synchronized with:
+
+ReentrantLock
+Concepts
+explicit locking
+Learning
+
+Advanced lock control.
+
+APIs
+lock()
+unlock()
+tryLock()
+17. Fair Lock vs Unfair Lock
+Problem
+
+Observe thread scheduling using:
+
+new ReentrantLock(true)
+Concepts
+fairness policy
+Learning
+
+Starvation prevention.
+
+18. tryLock Example
+Problem
+
+Thread should avoid waiting forever for lock.
+
+Concepts
+timeout locking
+Learning
+
+Non-blocking lock acquisition.
+
+19. ReadWriteLock Problem
+Problem
+
+Many readers.
+Few writers.
+
+Optimize performance.
+
+Concepts
+ReadWriteLock
+Learning
+
+Read-read concurrency.
+
+APIs
+ReentrantReadWriteLock
+readLock()
+writeLock()
+20. Cache System Using ReadWriteLock
+Problem
+
+Implement thread-safe cache.
+
+Concepts
+concurrent read optimization
+Real World
+
+Used in:
+
+in-memory caches
+config stores
+LEVEL 5 — Executor Framework & Thread Pools
+21. Fixed Thread Pool Example
+Problem
+
+Submit 100 tasks using thread pool size 5.
+
+Concepts
+thread pooling
+Learning
+
+Thread reuse.
+
+APIs
+Executors.newFixedThreadPool()
+submit()
+22. Cached Thread Pool
+Problem
+
+Observe dynamic thread creation.
+
+Concepts
+scalable pools
+Learning
+
+Pool sizing behavior.
+
+23. Scheduled Executor
+Problem
+
+Run task every 5 seconds.
+
+Concepts
+periodic scheduling
+APIs
+ScheduledExecutorService
+scheduleAtFixedRate()
+24. Callable and Future
+Problem
+
+Thread returns sum result.
+
+Concepts
+async computation
+APIs
+Callable
+Future
+get()
+25. Future Timeout Handling
+Problem
+
+Cancel task if taking > 2 seconds.
+
+Concepts
+cancellation
+timeout
+26. Custom ThreadPoolExecutor
+Problem
+
+Create custom executor with:
+
+core size
+max size
+queue size
+Concepts
+executor internals
+APIs
+ThreadPoolExecutor
+27. RejectedExecutionHandler
+Problem
+
+Handle task rejection when queue full.
+
+Concepts
+backpressure
+Real World
+
+Prevent server overload.
+
+LEVEL 6 — Concurrent Collections
+28. ConcurrentHashMap Example
+Problem
+
+Multiple threads update shared map safely.
+
+Concepts
+lock striping
+Learning
+
+Why HashMap unsafe.
+
+29. CopyOnWriteArrayList Example
+Problem
+
+Frequent reads, rare writes.
+
+Concepts
+immutable snapshot strategy
+Real World
+
+Subscriber lists.
+
+30. BlockingQueue Task System
+Problem
+
+Task producer-consumer system.
+
+Concepts
+work queues
+Real World
+
+Message processing systems.
+
+31. DelayQueue Example
+Problem
+
+Implement delayed task execution.
+
+Concepts
+scheduling queues
+LEVEL 7 — Atomic Classes & Lock-Free Programming
+32. AtomicInteger Counter
+Problem
+
+Thread-safe counter without synchronized.
+
+Concepts
+CAS (Compare And Swap)
+APIs
+AtomicInteger
+incrementAndGet()
+compareAndSet()
+33. Inventory Reservation Using CAS
+Problem
+
+Prevent overselling inventory.
+
+Concepts
+optimistic locking
+CAS retry loop
+Real World
+
+E-commerce systems.
+
+34. LongAdder vs AtomicInteger
+Problem
+
+Benchmark heavy concurrent increments.
+
+Concepts
+contention reduction
+Learning
+
+Why LongAdder scales better.
+
+LEVEL 8 — CompletableFuture & Async Programming
+35. CompletableFuture Basics
+Problem
+
+Run async task and return result.
+
+Concepts
+async programming
+APIs
+CompletableFuture
+supplyAsync()
+36. Parallel API Calls
+Problem
+
+Fetch:
+
+user profile
+orders
+recommendations
+
+in parallel.
+
+Concepts
+async composition
+APIs
+thenCombine()
+allOf()
+37. Exception Handling in CompletableFuture
+Problem
+
+Handle async failures gracefully.
+
+Concepts
+async exception flow
+APIs
+exceptionally()
+handle()
+38. Async Pipeline Problem
+Problem
+
+Build:
+
+fetch → validate → transform → save
+
+async chain.
+
+Concepts
+pipeline orchestration
+LEVEL 9 — Advanced Concurrency
+39. Semaphore Example
+Problem
+
+Allow only 3 users into resource simultaneously.
+
+Concepts
+permit-based concurrency
+APIs
+Semaphore
+acquire()
+release()
+40. CountDownLatch Example
+Problem
+
+Wait until 5 services initialize.
+
+Concepts
+one-time synchronization barrier
+41. CyclicBarrier Example
+Problem
+
+All players wait before game starts.
+
+Concepts
+reusable barrier
+42. Phaser Example
+Problem
+
+Multi-phase workflow synchronization.
+
+Concepts
+dynamic barrier synchronization
+43. ForkJoinPool Example
+Problem
+
+Parallel sum of huge array.
+
+Concepts
+divide and conquer parallelism
+44. Work Stealing Example
+Problem
+
+Observe ForkJoinPool balancing.
+
+Concepts
+work stealing algorithm

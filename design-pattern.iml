@@ -4,6 +4,157 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" packagePrefix="internal.designPattern" />
+      <excludeFolder url="file://$MODULE_DIR$/external/lld_concepts" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/01_resource_allocation_reservation/problems/event-booking-system">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/01_resource_allocation_reservation/problems/event-booking-system" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.event_booking_system" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/01_resource_allocation_reservation/problems/meeting-room-scheduler">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/01_resource_allocation_reservation/problems/meeting-room-scheduler" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.meeting_room_scheduler" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/01_resource_allocation_reservation/problems/parking-lot">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/01_resource_allocation_reservation/problems/parking-lot" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.parking_lot" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/02-inventory-order-management/problems/food-delivery-ordering">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/02-inventory-order-management/problems/food-delivery-ordering" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.food_delivery_ordering" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/02-inventory-order-management/problems/inventory-management-system">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/02-inventory-order-management/problems/inventory-management-system" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.inventory_management_system" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/02-inventory-order-management/problems/vending-machine">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/02-inventory-order-management/problems/vending-machine" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.vending_machine" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/03-matching-assignment-systems/problems/cab-booking-system">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/03-matching-assignment-systems/problems/cab-booking-system" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.cab_booking_system" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/03-matching-assignment-systems/problems/customer-support-ticket-assignment">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/03-matching-assignment-systems/problems/customer-support-ticket-assignment" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.customer_support_ticket_assignment" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/03-matching-assignment-systems/problems/delivery-partner-assignment">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/03-matching-assignment-systems/problems/delivery-partner-assignment" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.delivery_partner_assignment" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/03-matching-assignment-systems/problems/ride-sharing">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/03-matching-assignment-systems/problems/ride-sharing" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.ride_sharing" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/04-state-machine-heavy-systems/problems/atm">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/04-state-machine-heavy-systems/problems/atm" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.atm" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/04-state-machine-heavy-systems/problems/booking-lifecycle">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/04-state-machine-heavy-systems/problems/booking-lifecycle" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.booking_lifecycle" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/04-state-machine-heavy-systems/problems/elevator-system">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/04-state-machine-heavy-systems/problems/elevator-system" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.elevator_system" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/04-state-machine-heavy-systems/problems/order-lifecycle">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/04-state-machine-heavy-systems/problems/order-lifecycle" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.order_lifecycle" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/04-state-machine-heavy-systems/problems/parking-ticket-lifecycle">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/04-state-machine-heavy-systems/problems/parking-ticket-lifecycle" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.parking_ticket_lifecycle" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/05-rate-limiting-throttling/problems/api-gateway-throttling">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/05-rate-limiting-throttling/problems/api-gateway-throttling" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.api_gateway_throttling" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/05-rate-limiting-throttling/problems/api-rate-limiter">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/05-rate-limiting-throttling/problems/api-rate-limiter" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.api_rate_limiter" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/05-rate-limiting-throttling/problems/login-attempt-limiter">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/05-rate-limiting-throttling/problems/login-attempt-limiter" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.login_attempt_limiter" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/05-rate-limiting-throttling/problems/message-sending-limiter">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/05-rate-limiting-throttling/problems/message-sending-limiter" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.message_sending_limiter" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/05-rate-limiting-throttling/problems/otp-request-limiter">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/05-rate-limiting-throttling/problems/otp-request-limiter" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.otp_request_limiter" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/06-notification-pubsub-systems/problems/chat-notification">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/06-notification-pubsub-systems/problems/chat-notification" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.chat_notification" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/06-notification-pubsub-systems/problems/news-feed-subscription">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/06-notification-pubsub-systems/problems/news-feed-subscription" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.news_feed_subscription" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/06-notification-pubsub-systems/problems/notification-system">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/06-notification-pubsub-systems/problems/notification-system" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.notification_system" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/06-notification-pubsub-systems/problems/pub-sub-system">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/06-notification-pubsub-systems/problems/pub-sub-system" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.pub_sub_system" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/06-notification-pubsub-systems/problems/stock-price-alert">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/06-notification-pubsub-systems/problems/stock-price-alert" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.stock_price_alert" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/06-notification-pubsub-systems/problems/youtube-subscription-notification">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/06-notification-pubsub-systems/problems/youtube-subscription-notification" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.youtube_subscription_notification" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/07-feed-timeline-systems/problems/ecommerce-recommendations">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/07-feed-timeline-systems/problems/ecommerce-recommendations" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.ecommerce_recommendations" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/07-feed-timeline-systems/problems/instagram-feed">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/07-feed-timeline-systems/problems/instagram-feed" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.instagram_feed" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/08-file-storage-hierarchical-systems/problems/dropbox">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/08-file-storage-hierarchical-systems/problems/dropbox" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.dropbox" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/08-file-storage-hierarchical-systems/problems/google-drive">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/08-file-storage-hierarchical-systems/problems/google-drive" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.google_drive" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/08-file-storage-hierarchical-systems/problems/in-memory-file-system">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/08-file-storage-hierarchical-systems/problems/in-memory-file-system" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.in_memory_file_system" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/08-file-storage-hierarchical-systems/problems/linux-find">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/08-file-storage-hierarchical-systems/problems/linux-find" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.linux_find" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/08-file-storage-hierarchical-systems/problems/organization-hierarchy">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/08-file-storage-hierarchical-systems/problems/organization-hierarchy" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.organization_hierarchy" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/08-file-storage-hierarchical-systems/problems/versioned-document-store">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/08-file-storage-hierarchical-systems/problems/versioned-document-store" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.versioned_document_store" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/09-game-board-simulation-systems/problems/chess">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/09-game-board-simulation-systems/problems/chess" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.chess" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/09-game-board-simulation-systems/problems/snake-and-ladder">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/09-game-board-simulation-systems/problems/snake-and-ladder" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.snake_and_ladder" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/09-game-board-simulation-systems/problems/tic-tac-toe">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/09-game-board-simulation-systems/problems/tic-tac-toe" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.tic_tac_toe" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/10-financial-ledger-systems/problems/banking-system">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/10-financial-ledger-systems/problems/banking-system" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.banking_system" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/10-financial-ledger-systems/problems/expense-tracker">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/10-financial-ledger-systems/problems/expense-tracker" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.expense_tracker" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/10-financial-ledger-systems/problems/payment-system">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/10-financial-ledger-systems/problems/payment-system" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.payment_system" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/10-financial-ledger-systems/problems/splitwise">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/10-financial-ledger-systems/problems/splitwise" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.splitwise" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/10-financial-ledger-systems/problems/stock-trading-system">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/10-financial-ledger-systems/problems/stock-trading-system" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.stock_trading_system" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/10-financial-ledger-systems/problems/wallet-system">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/10-financial-ledger-systems/problems/wallet-system" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.wallet_system" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/11-access-control-authorization/problems/admin-panel-permissions">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/11-access-control-authorization/problems/admin-panel-permissions" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.admin_panel_permissions" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/11-access-control-authorization/problems/google-drive-permissions">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/11-access-control-authorization/problems/google-drive-permissions" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.google_drive_permissions" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/11-access-control-authorization/problems/role-based-access-control">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/11-access-control-authorization/problems/role-based-access-control" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.role_based_access_control" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/12-search-filtering-ranking/problems/cab-search">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/12-search-filtering-ranking/problems/cab-search" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.cab_search" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/12-search-filtering-ranking/problems/event-search">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/12-search-filtering-ranking/problems/event-search" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.event_search" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/12-search-filtering-ranking/problems/product-search">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/12-search-filtering-ranking/problems/product-search" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.product_search" />
+    </content>
+    <content url="file://$MODULE_DIR$/external/lld_concepts/12-search-filtering-ranking/problems/restaurant-search">
+      <sourceFolder url="file://$MODULE_DIR$/external/lld_concepts/12-search-filtering-ranking/problems/restaurant-search" isTestSource="false" packagePrefix="internal.designPattern.external.lldConcepts.restaurant_search" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
