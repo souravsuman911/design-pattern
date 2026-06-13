@@ -77,6 +77,9 @@ Service layer, repository, state machine, strategy, DTO/request object, observer
 - Explain the chosen data structures.
 - Discuss DB schema and production constraints verbally.
 
+## Class Diagram
+
+```text
 +----------------+
 | TicTacToeGame  |
 +----------------+
@@ -113,3 +116,4 @@ Service layer, repository, state machine, strategy, DTO/request object, observer
 | checkWinner()  |
 | isDraw()       |
 +----------------+
+```
