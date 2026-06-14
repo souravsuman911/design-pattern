@@ -1,6 +1,6 @@
 # Snake And Ladder LLD
 
-Implementation: `SnakeAndLadderClient.java`
+Implementation: `SnakeAndLadder.java`
 
 ## Category
 Game and Board Simulation Systems
@@ -76,3 +76,58 @@ Service layer, repository, state machine, strategy, DTO/request object, observer
 - Identify the critical section.
 - Explain the chosen data structures.
 - Discuss DB schema and production constraints verbally.
+
+
+```text
++------------------------+
+| SnakeAndLadderGame     |
++------------------------+
+| Board board            |
+| Rule rule              |
+| Dice dice              |
+| Queue<Player> players  |
+| int winningPlace       |
++------------------------+
+| startGame()            |
++------------------------+
+
++------------------------+
+| Board                  |
++------------------------+
+| int size               |
+| Map<Integer,Integer>   |
+| jumps                  |
++------------------------+
+| getSize()              |
+| getJumps()             |
+| printJumps()           |
+| validateBoard()        |
+| validateJumps()        |
++------------------------+
+
++------------------------+
+| Player                 |
++------------------------+
+| String name            |
+| int position           |
++------------------------+
+| getName()              |
+| getPosition()          |
+| setPosition()          |
++------------------------+
+
++------------------------+
+| Dice                   |
++------------------------+
+| int faceValue          |
++------------------------+
+| roll()                 |
+| getFaceValue()         |
++------------------------+
+
++------------------------+
+| Rule                   |
++------------------------+
+| hasWon()               |
++------------------------+
+```
