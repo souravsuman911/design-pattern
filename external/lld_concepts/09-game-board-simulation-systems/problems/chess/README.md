@@ -1,78 +1,157 @@
 # Chess LLD
 
-Implementation: `ChessClient.java`
+Implementation: `ChessGame.java`
+
+```text
++----------------------+
+| ChessGame            |
++----------------------+
+| Board board          |
+| Rule rule            |
+| Player white         |
+| Player black         |
+| Player current       |
++----------------------+
+| startGame()          |
+| switchTurn()         |
++----------------------+
+
++----------------------+
+| Board                |
++----------------------+
+| Piece[][] grid       |
++----------------------+
+| initializeBoard()    |
+| getPiece()           |
+| movePiece()          |
+| printBoard()         |
++----------------------+
+
++----------------------+
+| Rule                 |
++----------------------+
+| isValidMove()        |
++----------------------+
+
++----------------------+
+| Player               |
++----------------------+
+| String name          |
+| Color color          |
++----------------------+
+
++----------------------+
+| Move                 |
++----------------------+
+| fromRow              |
+| fromCol              |
+| toRow                |
+| toCol                |
++----------------------+
+
++----------------------+
+| Piece (abstract)     |
++----------------------+
+| Color color          |
++----------------------+
+| canMove()            |
++----------------------+
+
+        ▲
+        |
+----------------------------------
+|     |      |      |      |      |
+v     v      v      v      v      v
+
+King Queen Rook Bishop Knight Pawn
+```
 
 ## Category
 Game and Board Simulation Systems
 
 ## Scope
-Interview-ready low-level design for **Chess**. The code is compact but includes entities, statuses, services, storage, concurrency protection, and one executable happy path.
+Interview-ready low-level design for **Chess**. The current implementation models an `8 x 8` board, two players, piece-specific movement rules, turn switching, and basic move validation.
 
 ## Functional Requirements
-- Model the main domain entities and request flow.
-- Execute the primary happy path.
-- Validate unavailable resources or invalid state.
-- Keep lifecycle state explicit using enums.
-- Provide extension points using strategy/service boundaries.
+- Initialize a standard chess board with all major pieces.
+- Support two players with white and black colors.
+- Accept a move as source and destination coordinates.
+- Validate that the move is inside the board and belongs to the active player.
+- Reject moves that land on a same-color piece.
+- Apply piece-specific movement logic for king, queen, rook, bishop, knight, and pawn.
+- Alternate turns after each valid move.
 
 ## Non-Functional Requirements
-- **Consistency**: All writes go through service methods.
-- **Concurrency**: Critical shared state uses locks, atomics, concurrent maps, or queues.
-- **Idempotency**: Retry-prone APIs should use an idempotency key in production.
-- **Scalability**: Reads can be indexed/cached; writes should partition by entity key.
-- **Fault tolerance**: Side effects like notifications should be async and retryable.
-
-## Core Design
-```text
-Client -> Service -> Repository/Store -> Domain Entity
-               |-> Strategy / Matcher / Validator / Notifier
-```
+- **Readability**: Piece rules stay simple and interview-friendly.
+- **Extensibility**: New rules like castling, check, and checkmate should be addable without rewriting the board model.
+- **Separation of concerns**: Board state, move validation, and piece movement stay separated.
+- **Scalability**: For online or persistent play, moves and sessions should be stored outside process memory.
 
 ## Main Flow
 ```text
-Request received
- -> validate input
- -> check current state/conflict
- -> lock or atomically update shared state
- -> change status
- -> persist result
- -> publish optional event/notification
+Create board and players
+ -> print board
+ -> read move coordinates
+ -> validate board bounds and ownership
+ -> validate destination occupancy
+ -> delegate piece-specific movement check
+ -> move piece on board
+ -> switch turn
+ -> repeat
 ```
 
-## Important Concepts
-- State machine and valid transitions.
-- Race condition location and concurrency protection.
-- Request validation and duplicate prevention.
-- Failure handling and retry behavior.
-- Strategy pattern for algorithms that can change.
-- Repository pattern for replacing in-memory storage with DB.
+## Schema Design
+### In-Memory Object Model
+- `Game`: orchestrates board lifecycle, turn order, and input loop.
+- `Board`: stores `Piece[][] grid` and handles piece relocation.
+- `Player`: stores `name` and `color`.
+- `Move`: captures one move request with source and destination coordinates.
+- `Rule`: validates board bounds, ownership, and destination rules.
+- `Piece`: abstract base class for piece-specific movement behavior.
+- Concrete pieces: `King`, `Queen`, `Rook`, `Bishop`, `Knight`, and `Pawn`.
 
-## Production Notes
-- Replace maps with DB tables and transactions.
-- Add unique constraints for idempotency and duplicate prevention.
-- Add indexes on owner, status, time, and search fields.
-- Use queue/outbox for notifications and external side effects.
-- Add audit/history tables for important state changes.
+### Production Database Mapping
+- `game_session`
+  - `game_id` PK
+  - `status`
+  - `current_turn_color`
+  - `created_at`
+  - `ended_at`
+- `game_player`
+  - `game_id` FK
+  - `player_id` PK
+  - `player_name`
+  - `color`
+  - `is_active`
+- `board_state`
+  - `board_state_id` PK
+  - `game_id` FK
+  - `row_index`
+  - `col_index`
+  - `piece_type`
+  - `piece_color`
+- `move_history`
+  - `move_id` PK
+  - `game_id` FK
+  - `player_id` FK
+  - `move_number`
+  - `from_row`
+  - `from_col`
+  - `to_row`
+  - `to_col`
+  - `captured_piece_type` nullable
+- `game_result`
+  - `game_id` PK/FK
+  - `winner_player_id` nullable
+  - `result_type`
 
-## Common Interview Questions
-### What are the main entities?
-Mention the primary resource, user/requester, lifecycle entity, status enum, and service.
+## Design Notes
+- The current implementation validates piece movement shape, but it does not yet check path blocking for rook, bishop, or queen.
+- Check, checkmate, stalemate, castling, en passant, and pawn promotion are not modeled yet.
+- `Piece` is the main extensibility point; advanced rules can be layered into `Rule` or specialized validators later.
+- Persisted `move_history` is the key building block for replay, undo, online sync, and audit.
 
-### Where can concurrency fail?
-Shared resource assignment, stock update, state transition, ledger transfer, or rate counter update.
-
-### How is duplicate processing avoided?
-Use idempotency key plus a unique constraint or atomic map insertion.
-
-### How does this scale?
-Cache reads, index common queries, partition by entity key, and keep critical writes transactional.
-
-### Which patterns are used?
-Service layer, repository, state machine, strategy, DTO/request object, observer/outbox where needed.
-
-## Implementation Checklist
-- Read enums first.
-- Trace the service method used in `main`.
-- Identify the critical section.
-- Explain the chosen data structures.
-- Discuss DB schema and production constraints verbally.
+## Interview Discussion Points
+- Use polymorphism in `Piece.canMove()` to avoid large switch statements for piece behavior.
+- Keep board mutation in one place so rule validation stays separate from state updates.
+- Add `GameStatus` and check or checkmate detection before exposing this model as a multiplayer service.
