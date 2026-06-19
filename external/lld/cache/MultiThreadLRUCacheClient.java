@@ -1,4 +1,4 @@
-package internal.designPattern.external.lld.lrucache;
+package internal.designPattern.external.lld.cache;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -118,12 +118,12 @@ class LRUCache implements ILRUCache {
     }
 }
 
-class GetWorker implements Runnable {
+class GetTask implements Runnable {
 
     private final LRUCache lruCache;
     private final int key;
 
-    public GetWorker(LRUCache lruCache, int key) {
+    public GetTask(LRUCache lruCache, int key) {
         this.lruCache = lruCache;
         this.key = key;
     }
@@ -138,13 +138,13 @@ class GetWorker implements Runnable {
     }
 }
 
-class PutWorker implements Runnable {
+class PutTask implements Runnable {
 
     private final LRUCache lruCache;
     private final int key;
     private final int value;
 
-    public PutWorker(LRUCache lruCache, int key, int value) {
+    public PutTask(LRUCache lruCache, int key, int value) {
         this.lruCache = lruCache;
         this.key = key;
         this.value = value;
@@ -155,7 +155,8 @@ class PutWorker implements Runnable {
         lruCache.put(key, value);
     }
 }
-public class LRUCacheClient {
+
+public class MultiThreadLRUCacheClient {
     public static void main(String[] args) {
         LRUCache lruCache = LRUCache.getInstance(5);
         lruCache.put(1, 11);
@@ -163,8 +164,8 @@ public class LRUCacheClient {
         lruCache.put(3, 13);
         lruCache.put(4, 14);
 
-        Thread t1 = new Thread(new GetWorker(lruCache, 2), "Thread1 GET");
-        Thread t2 = new Thread(new PutWorker(lruCache, 5, 15), "Thread2 PUT");
+        Thread t1 = new Thread(new GetTask(lruCache, 2), "Thread1 GET");
+        Thread t2 = new Thread(new PutTask(lruCache, 5, 15), "Thread2 PUT");
         t1.start();
         t2.start();
 

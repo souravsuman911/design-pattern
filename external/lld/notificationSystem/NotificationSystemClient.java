@@ -11,7 +11,10 @@ enum ChannelType {
 }
 
 enum NotificationType {
-    TRANSACTIONAL, PROMOTIONAL
+    TRANSACTIONAL("1"), PROMOTIONAL("2");
+
+    NotificationType(String priority) {
+    }
 }
 
 class NotificationTemplate {
